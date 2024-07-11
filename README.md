@@ -3,6 +3,10 @@ Inicia el servidor en 127.0.0.1:5000 ejecutando:
 
 ``` python app.py ```
 
+# Instalar librerias necesarias
+
+``` pip install flask tensorflow```
+
 # Inferencia
 Se sube una imagen y se escogen los modelos contra los cuales se desea comparar a EfficientNet en su variante B0.
 
