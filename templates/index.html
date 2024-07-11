@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Classification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    form {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
+    input[type="file"], select, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .model-selector {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comparar Modelos</h1>
+  <form action="/" method="post" enctype="multipart/form-data">
+    <label for="file">Arrastra una imagen aquí o haz clic para subirla</label>
+    <input type="file" id="file" name="file" accept="image/*" required>
+    
+    <div id="model-selectors">
+      <div class="model-selector">
+        <select name="model_choices[]">
+          <option value="ResNet50">ResNet50</option>
+          <option value="DenseNet169">DenseNet169</option>
+          <option value="InceptionV3">InceptionV3</option>
+          <option value="Xception">Xception</option>
+        </select>
+      </div>
+    </div>
+    
+    <button type="button" onclick="addModelSelector()">Agregar Modelo</button>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    function addModelSelector() {
+      const modelSelectors = document.getElementById('model-selectors');
+      const newSelector = document.createElement('div');
+      newSelector.className = 'model-selector';
+      newSelector.innerHTML = `
+        <select name="model_choices[]">
+          <option value="ResNet50">ResNet50</option>
+          <option value="DenseNet169">DenseNet169</option>
+          <option value="InceptionV3">InceptionV3</option>
+          <option value="Xception">Xception</option>
+        </select>
+      `;
+      modelSelectors.appendChild(newSelector);
+    }
+  </script>
+</body>
+</html>
